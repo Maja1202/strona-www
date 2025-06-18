@@ -15,7 +15,7 @@
     }
 
     header {
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 0.95);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -30,6 +30,13 @@
       font-size: 1.5rem;
       font-weight: 700;
       color: #4e6655;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 24px;
+      margin-right: 8px;
     }
 
     nav a {
@@ -70,6 +77,7 @@
       font-size: 4rem;
       z-index: 1;
       color: #f0fdf5;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
     }
 
     section {
@@ -82,6 +90,16 @@
       color: #4e6655;
       font-size: 2rem;
       margin-bottom: 1rem;
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: #93b29d;
+      margin-top: 0.5rem;
     }
 
     p {
@@ -154,7 +172,10 @@
 </head>
 <body>
   <header role="banner">
-    <div class="logo">bio cosmetic</div>
+    <div class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/2909/2909769.png" alt="Listek" aria-hidden="true">
+      bio cosmetic
+    </div>
     <nav role="navigation" aria-label="Główne menu">
       <a href="#home">Home</a>
       <a href="#o-nas">O nas</a>
@@ -181,9 +202,9 @@
         W naszej ofercie znajdziesz naturalne kremy, olejki, balsamy i peelingi. Wszystkie produkty są tworzone ręcznie, bez użycia szkodliwych substancji chemicznych, testowane dermatologicznie i przyjazne weganom.
       </p>
       <div class="produkty-imgs" role="region" aria-label="Zdjęcia produktów">
-        <img src="https://images.unsplash.com/photo-1585386959984-a415522fae1c?auto=format&fit=crop&w=500&q=80" alt="Naturalny krem do twarzy">
-        <img src="https://images.unsplash.com/photo-1600423115367-377bcd51a1ff?auto=format&fit=crop&w=500&q=80" alt="Olejek eteryczny w butelce">
-        <img src="https://images.unsplash.com/photo-1585386959982-44d11b44a2d7?auto=format&fit=crop&w=500&q=80" alt="Naturalny balsam do ciala">
+        <img src="https://images.unsplash.com/photo-1627141164202-9e9b2be2d5d0?auto=format&fit=crop&w=500&q=80" alt="Naturalny krem do twarzy">
+        <img src="https://images.unsplash.com/photo-1600271886742-9e47cc38c471?auto=format&fit=crop&w=500&q=80" alt="Olejek eteryczny w butelce">
+        <img src="https://images.unsplash.com/photo-1586943350684-72da6c4ef91b?auto=format&fit=crop&w=500&q=80" alt="Naturalny balsam do ciała">
       </div>
     </section>
 
@@ -208,3 +229,4 @@
   </main>
 </body>
 </html>
+
