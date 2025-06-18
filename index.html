@@ -11,6 +11,7 @@
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #e9f5e1, #f4efe7);
       color: #3f4d3a;
+      scroll-behavior: smooth;
     }
 
     header {
@@ -20,6 +21,9 @@
       align-items: center;
       padding: 1rem 2rem;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .logo {
@@ -68,6 +72,74 @@
       color: #f0fdf5;
     }
 
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #4e6655;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #5a6e5d;
+    }
+
+    .produkty-imgs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .produkty-imgs img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    label {
+      font-weight: 500;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border: 1px solid #c8d5c1;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    input:focus, textarea:focus {
+      outline: 2px solid #93b29d;
+    }
+
+    button {
+      background-color: #6a7b6e;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #93b29d;
+    }
+
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 2.5rem;
@@ -81,18 +153,58 @@
   </style>
 </head>
 <body>
-  <header>
+  <header role="banner">
     <div class="logo">bio cosmetic</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">O nas</a>
-      <a href="#">Produkty</a>
-      <a href="#">Kontakt</a>
+    <nav role="navigation" aria-label="Główne menu">
+      <a href="#home">Home</a>
+      <a href="#o-nas">O nas</a>
+      <a href="#produkty">Produkty</a>
+      <a href="#kontakt">Kontakt</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>bio cosmetic</h1>
-  </section>
+  <main>
+    <section class="hero" id="home" aria-label="Strona główna">
+      <h1>bio cosmetic</h1>
+    </section>
+
+    <section id="o-nas" aria-labelledby="onas-heading">
+      <h2 id="onas-heading">O nas</h2>
+      <p>
+        Jesteśmy marką, która wierzy w naturalne piękno. Tworzymy kosmetyki oparte na roślinnych składnikach, które są delikatne dla skóry i środowiska. Naszym celem jest promowanie świadomej pielęgnacji bez kompromisów.
+      </p>
+    </section>
+
+    <section id="produkty" aria-labelledby="produkty-heading">
+      <h2 id="produkty-heading">Nasze produkty</h2>
+      <p>
+        W naszej ofercie znajdziesz naturalne kremy, olejki, balsamy i peelingi. Wszystkie produkty są tworzone ręcznie, bez użycia szkodliwych substancji chemicznych, testowane dermatologicznie i przyjazne weganom.
+      </p>
+      <div class="produkty-imgs" role="region" aria-label="Zdjęcia produktów">
+        <img src="https://images.unsplash.com/photo-1585386959984-a415522fae1c?auto=format&fit=crop&w=500&q=80" alt="Naturalny krem do twarzy">
+        <img src="https://images.unsplash.com/photo-1600423115367-377bcd51a1ff?auto=format&fit=crop&w=500&q=80" alt="Olejek eteryczny w butelce">
+        <img src="https://images.unsplash.com/photo-1585386959982-44d11b44a2d7?auto=format&fit=crop&w=500&q=80" alt="Naturalny balsam do ciala">
+      </div>
+    </section>
+
+    <section id="kontakt" aria-labelledby="kontakt-heading">
+      <h2 id="kontakt-heading">Kontakt</h2>
+      <p>
+        Masz pytania? Wypełnij formularz, a odpowiemy jak najszybciej!
+      </p>
+      <form aria-label="Formularz kontaktowy">
+        <label for="name">Imię i nazwisko</label>
+        <input type="text" id="name" name="name" required aria-required="true">
+
+        <label for="email">Adres e-mail</label>
+        <input type="email" id="email" name="email" required aria-required="true">
+
+        <label for="message">Wiadomość</label>
+        <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+
+        <button type="submit">Wyślij wiadomość</button>
+      </form>
+    </section>
+  </main>
 </body>
 </html>
