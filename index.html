@@ -107,19 +107,24 @@
       color: #5a6e5d;
     }
 
-    .produkty-imgs {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
+    .produkt-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
       margin-top: 2rem;
     }
 
-    .produkty-imgs img {
-      width: 100%;
+    .produkt-row img {
+      max-width: 300px;
       height: auto;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .produkt-opis {
+      flex: 1;
     }
 
     form {
@@ -167,6 +172,11 @@
         margin-left: 1rem;
         font-size: 0.9rem;
       }
+
+      .produkt-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
@@ -198,14 +208,23 @@
 
     <section id="produkty" aria-labelledby="produkty-heading">
       <h2 id="produkty-heading">Nasze produkty</h2>
-      <p>
-        W naszej ofercie znajdziesz naturalne kremy, olejki, balsamy i peelingi. Wszystkie produkty są tworzone ręcznie, bez użycia szkodliwych substancji chemicznych, testowane dermatologicznie i przyjazne weganom.
-      </p>
-      <div class="produkty-imgs" role="region" aria-label="Zdjęcia produktów">
-        <img src="https://via.placeholder.com/300x400/ffc0cb/ffffff?text=VEGETIC+Szampon" alt="Szampon VEGETIC różowy">
-        <img src="https://via.placeholder.com/300x400/90ee90/ffffff?text=VEGETIC+Maska" alt="Maska VEGETIC zielona">
-        <img src="https://via.placeholder.com/300x400/fffacd/000000?text=VEGETIC+Odżywka" alt="Odżywka VEGETIC żółta">
+
+      <div class="produkt-row">
+        <img src="/mnt/data/maski.png" alt="Maski do włosów VEGETIC - różowa, zielona i żółta">
+        <div class="produkt-opis">
+          <h3>Maski VEGETIC</h3>
+          <p>Trzy warianty masek: różana z maliną nordycką, aloesowa oraz z olejem z awokado. Naturalna pielęgnacja dostosowana do różnych potrzeb Twoich włosów.</p>
+        </div>
       </div>
+
+      <div class="produkt-row">
+        <img src="/mnt/data/odżywka.png" alt="Odżywka VEGETIC - aloes i olej z awokado">
+        <div class="produkt-opis">
+          <h3>Odżywka VEGETIC</h3>
+          <p>Nawilżająca odżywka bogata w aloes i olej z awokado. Pozostawia włosy miękkie, błyszczące i łatwe do rozczesania.</p>
+        </div>
+      </div>
+
     </section>
 
     <section id="kontakt" aria-labelledby="kontakt-heading">
